@@ -90,6 +90,19 @@ class maxheap{
             swap(arr[index],arr[big_idx]); heapifydown(big_idx);
         }
     }
+    void build_heapifydown(int* arr){ //Building  a heap from heapify down-requires that at i index- the left and right subtree are already valid heaps. so we begin iterating from backwards.
+        //and even in that skip iterating over leaf nodes-as they can't be heapified down any further
+        for(int i=(curr_size/2)-1;i>=0;i--){
+            heapifydown(i);
+        }
+    }
+    void build_heapifyup(int* arr){ //Building  a heap from heapify up-requires that i index- ancestor chain is valid heap on its own-else element moving up will end up comparing itself
+        //with non valid guys. so iterate from 0 to back.
+        //-ensure every node is worked upon-as any element can move upwards to any valid place
+        for(int i=0;i<curr_size;i++){
+            heapifyup(i);
+        }
+    }
     void heapsort(){
         int active_size=curr_size;
         curr_size--; //before this line-curr_size was waiting to insert a new element at its location
@@ -119,9 +132,8 @@ int main(){
         cin>>unsort_arr[i]; 
     }
     maxheap obj(n);
-    for(int i=0;i<n;i++){ //we build the max heap first
-        obj.insert(unsort_arr[i]);
-    }
-    obj.heapsort();
-    obj.printheap();
+    obj.build_heapifydown(arr); 
+    //builds heap using hepaify down-total tc is o(n)
+    obj.build_heapifyup(arr);
+    //builds heap using hepaify up-total tc is o(nlogn)
 }  
