@@ -1,0 +1,6 @@
+Time taken to construct a heap from an array takes o(nlogn) (if using heapify up) vs o(n) if using heapifydown.
+So similarly if we are given an array and we wish to construct heap from it-2 ways:
+1) we iterate over it and insert(it will then put element accoridngly by heapify down or heapify up), so o(nlogn)
+2) we do priority_queue<int>pq(vec.begin(),vec.end()); or priority_queue<int,vector<int>,greater<int>>pq(vec.begin(),vec.end()); -it takes O(N) only-as uses heapify down on all elements at once.
+
+BUT IF WE ARE READING FROM INPUT STREAM AND TRYING TO CONSTRUCT- Takes o(nlogn) only as it is similar to the 1st method.
