@@ -1,0 +1,1 @@
+heaps have height log2 n(0 based)-since complete bt.
