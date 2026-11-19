@@ -1,1 +1,2 @@
 heaps have height log2 n(0 based)-since complete bt.
+leaf nodes in 0 based heaps-are located from (both inclusive) n/2(floor) to n-1.
